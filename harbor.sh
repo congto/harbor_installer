@@ -45,7 +45,7 @@ apt-get install -y docker-ce docker-ce-cli containerd.io
 tee /etc/docker/daemon.json >/dev/null <<EOF
 {
 	"exec-opts": ["native.cgroupdriver=systemd"],
-	"insecure-registries" : ["$IPorFQDN:443","$IPorFQDN:80","0.0.0.0/0"],
+	"insecure-registries" : ["$IP:443","$FQDN:443","$IP:80", "$FQDN:80","0.0.0.0/0"],
 	"log-driver": "json-file",
 	"log-opts": {
 		"max-size": "100m"
