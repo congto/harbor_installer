@@ -7,20 +7,27 @@
 # Unless ENV VAR 'IPorFQDN' is already set in CLI,
 # prompt for the user to ask if the install should use the IP Address or Fully Qualified Domain Name of the Harbor Server
 
-if [ -z "$IPorFQDN" ];then
-	PS3='Would you like to install Harbor based on IP or FQDN? '
-	select option in IP FQDN
-	do
-		case $option in
-			IP)
-				IPorFQDN=$(hostname -I|cut -d" " -f 1)
-				break;;
-			FQDN)
-				IPorFQDN=$(hostname -f)
-				break;;
-		esac
-	done
-fi
+echo "Nhap IP"
+read IP
+
+echo "Nhap FQDN (domain)"
+read FQDN
+
+
+#if [ -z "$IPorFQDN" ];then
+#	PS3='Would you like to install Harbor based on IP or FQDN? '
+#	select option in IP FQDN
+#	do
+#		case $option in
+#			IP)
+#				IPorFQDN=$(hostname -I|cut -d" " -f 1)
+#				break;;
+#			FQDN)
+#				IPorFQDN=$(hostname -f)
+#				break;;
+#		esac
+#	done
+#fi
 
 # Housekeeping
 apt update -yq
